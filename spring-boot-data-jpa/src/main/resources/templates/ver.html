@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<link xmls:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8"/>
+	<title th="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+	
+		<img th:if="${cliente.photo != null}" th:src="@{'/uploads/'} + ${cliente.photo}"/>
+	
+		<div>
+			<label>Nombre</label>
+			<label th:text="${cliente.nombre}"/>
+		</div>
+		<div>
+			<label>Apellido</label>
+			<label th:text="${cliente.apellido}"/>
+		</div>
+		<div>
+			<label>Email</label>
+			<label th:text="${cliente.email}"/>
+		</div>
+		
+		<div>
+			<label>Creacion</label>
+			<label th:text="${cliente.createAt}"/>
+		</div>
+		
+	
+</body>
+</html>

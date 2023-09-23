@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head xmls:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8"/>
+	<title>Enviar parametros cdel request HTTP GET</title>
+</head>
+<body>
+	<ul>
+		<li>
+			<a th:href="@{/params/string(texto='Hola Dany',prueba='hola2')}">/params/string1</a>
+		</li>
+		<li>
+			<a th:href="@{/params/string(texto='dany prueba prueba',prueba='hola2')}">/params/string2</a>
+		</li>
+		<li>
+			<a th:href="@{/params/string(texto='Mati es enano',prueba='hola2')}">/params/string3</a>
+		</li>
+		<li>
+			<a th:href="@{/params/mix-params(saludo='Hola mati enano que se come un numero de cacas', numero=20)}">mix-params</a>
+		</li>
+	</ul>
+</body>
+</html>

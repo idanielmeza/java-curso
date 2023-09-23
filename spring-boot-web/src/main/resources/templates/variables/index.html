@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head xmls:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8"/>
+	<title>Enviar parametros path parameters HTTP GET</title>
+</head>
+<body>
+	<ul>
+		<li>
+			<a th:href="@{/variables/string/pony}">pony</a>
+		</li>
+		<li>
+			<a th:href="@{/variables/string/hola/30}">hola 30</a>
+		</li>
+		<li>
+			<a th:href="@{/variables/string/hola}">hola</a>
+		</li>
+		<li>
+			<a th:href="@{/variables/string/hola/20}">hola 20</a>
+		</li>
+	</ul>
+</body>
+</html>

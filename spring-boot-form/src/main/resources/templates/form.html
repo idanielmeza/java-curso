@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<link xmls:th="http://www.thymeleaf.org">
+	<meta charset="UTF-8"/>
+	<title>Formulario</title>
+	
+</head>
+<body>
+	
+	<div>
+		<span th:text="${tiempoTranscurrido}">
+			
+		</span>
+	</div>
+	
+	<form th:action="@{/form}" th:object="${usuario}" method="post">
+		
+		<div>
+			<label>Habilitar</label>
+			<input type="checkbox" id="habilitar" th:field="*{habilitar}"/>
+		</div>
+		
+		<div>
+			<label>Genero</label>
+			
+			<div>
+				<label>Hombre</label>
+				<input type="radio" name="genero" th:field="*{genero}" value="Hombre"/>
+			</div>
+			
+			<div>
+				<label>Mujer</label>
+				<input type="radio" name="genero" th:field="*{genero}" value="Mujer"/>
+			</div>
+			
+			
+			<div th:if="${#fields.hasErrors('genero')}" th:errors="*{genero}"></div>
+		</div>
+		
+		<div>
+			<label>Pais</label>
+			<select type="text" name="pais" th:field="*{pais.id}">
+				<option value="">--Seleccionar--</option>
+				<option th:each="pais: ${listaPaises}" th:text="${pais.nombre}" th:value="${pais.id}"></option>
+			</select>
+			<div th:if="${#fields.hasErrors('pais.id')}" th:errors="*{pais.id}"></div>
+		</div>
+		
+		<div>
+			<label>Roles</label>
+			<div th:each="role: ${listaRoles}">
+				<input type="checkbox" th:field="*{roles}" th:value="${role.id}">
+				<label th:for="${#ids.prev('roles')}" th:text="${role.nombre}"></label>
+			</div>
+			<div th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></div>
+		</div>
+		
+		<div>
+			<label>Nombre</label>
+			<input type="text" name="nombre" th:field="*{nombre}"/>
+			<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+		</div>
+		<div>
+			<label>Apellido</label>
+			<input type="text" name="username" th:field="*{apellido}"/>
+			<div th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+		</div>
+		<div>
+			<label>Username</label>
+			<input type="text" name="username" th:field="*{username}"/>
+			<div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+		</div>
+		<div>
+			<label>Password</label>
+			<input type="text" name="password"/>
+			<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+		</div>
+		
+		<div>
+			<label>Email</label>
+			<input type="text" name="email" th:field="*{email}"/>
+			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+		</div>
+		
+		<div>
+			<label>Cuenta</label>
+			<input type="text" name="cuenta" th:field="*{cuenta}"/>
+			<div th:if="${#fields.hasErrors('cuenta')}" th:errors="*{cuenta}"></div>
+		</div>
+		
+		<div>
+			<label>Fecha</label>
+			<input type="date" name="fechaNacimiento" th:field="*{fechaNacimiento}"/>
+			<div th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}"></div>
+		</div>
+		
+		
+		
+		<input type="submit" value="Enviar"/>
+		
+	</form>
+	
+</body>
+</html>
